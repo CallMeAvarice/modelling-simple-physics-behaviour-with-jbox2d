@@ -9,7 +9,7 @@ import org.jbox2d.testbed.framework.TestbedTest;
 public class SimpleJBox2DWorld extends TestbedTest {
     @Override
     public void initTest(boolean b) {
-        Vec2 gravity = new Vec2(0.0f, -10.0f);
+        Vec2 gravity = new Vec2(0.0f, -50.0f);
         boolean doSleep = true;
 
         World world = getWorld();
@@ -26,17 +26,16 @@ public class SimpleJBox2DWorld extends TestbedTest {
             ground.createFixture(shape, 0.0f);
         }
 
+        // Actor - a small circle
         {
             BodyDef bd = new BodyDef();
             bd.type = BodyType.DYNAMIC;
             bd.position.set(0.0f, 40.0f);
             Body m_body1 = getWorld().createBody(bd);
 
-//            PolygonShape m_shape1 = new PolygonShape();
-//            m_shape1.setAsBox(0.5f, 0.5f, new Vec2(-0.5f, 0.0f), 0.0f);
             CircleShape m_shape1 = new CircleShape();
             m_shape1.m_radius = 0.5f;
-            Fixture m_piece1 = m_body1.createFixture(m_shape1, 1.0f);
+            m_body1.createFixture(m_shape1, 1.0f);
         }
     }
 
