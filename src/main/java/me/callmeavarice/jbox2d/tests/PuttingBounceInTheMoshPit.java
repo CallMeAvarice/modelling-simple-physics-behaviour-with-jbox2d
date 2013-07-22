@@ -56,17 +56,18 @@ public class PuttingBounceInTheMoshPit extends TestbedTest {
             m_shape1.m_radius = 0.9f;
             FixtureDef fd = new FixtureDef();
             fd.shape = m_shape1;
-            fd.density = 0.85f;
-            fd.friction = 0.35f;
+            fd.density = 0.65f;
+            fd.friction = 0.5f;
             // Bounciness
             fd.restitution = 0.99f;
 
 
+            Random randomIndex = new Random();
+
             // Populate the scene with Moshers
-            for(float x = -19.1f; x <= 20f; x=x+1.81f) {
-                Random randomIndex = new Random();
-                fd.density = strength[randomIndex.nextInt(10)];
-                fd.friction = weight[randomIndex.nextInt(10)];
+            for(float x = -19.1f; x <= 20f; x=x+1.805f) {
+                fd.density = weight[randomIndex.nextInt(10)];
+                fd.friction = strength[randomIndex.nextInt(10)];
 
                 BodyDef bd = new BodyDef();
                 bd.type = BodyType.DYNAMIC;
